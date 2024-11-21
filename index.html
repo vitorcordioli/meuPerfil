@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Interativo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="card" id="profileCard">
+            <div class="card-body text-center">
+                <img src="https://via.placeholder.com/150" alt="Imagem de Perfil" id="profileImage" class="rounded-circle mb-3" style="width: 150px;">
+                <h3 id="profileName">Nome: MeuPerfil</h3>
+                <p id="profileAge">Idade: 18</p>
+                <h5>Hobbies: </h5>
+                <ul id="hobbiesList" class="list-group mb-3">
+                    <li class="list-group-item">Leitura</li>
+                    <li class="list-group-item">Esportes</li>
+                    <li class="list-group-item">Música</li>
+                </ul>
+                <button class="btn btn-primary me-2" onclick="alterarNome()">Alterar Nome</button>
+                <button class="btn btn-sucess me-2" onclick="adicionarHobby()">Adicionar Hobby</button>
+                <button class="btn btn-warning me-2" onclick="mudarCorDeFundo()">Mudar Cor de Fundo</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function alterarNome(){
+            const novoNome = prompt("Digite o novo nome: ");
+            if (novoNome){
+                document.getElementById("profileName").textContent = "Nome: " + novoNome;
+            }
+        }
+
+        function adicionarHobby(){
+            const novoHobby = prompt("Digite um novo hobby: ");
+            if (novoHobby){
+                const li = document.createElement("li");
+                li.textContent = novoHobby;
+                li.className = "list-group-item";
+                document.getElementById("hobbiesList").appendChild(li);
+            }
+        }
+
+        function mudarCorDeFundo(){
+            const cores = ["#f8d7da", "#d1ecf1", "#d4edda", "#fff3cd", "#cce5ff"];
+            const corAleatoria =  cores[Math.floor(Math.random() * cores.length)];
+            document.getElementById("profileCard").style.backgroundColor = corAleatoria;
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
