@@ -23,7 +23,7 @@
 
                 <img src="https://via.placeholder.com/150" alt="Imagem de Perfil" id="profileImage" class="rounded-circle mb-3" style="width: 150px;" onclick="mudarImagem()">
 
-                <h3 id="profileName">Nome: pedro colares</h3>
+                <h3 id="profileName">Nome: Vitor Cordioli</h3>
 
                 <p id="profileAge">Idade: 18</p>
 
@@ -56,61 +56,67 @@
     </div>
 
     <script>
-
+        //Função que abre um prompt, usado para alterar o nome 
         function alterarNome() {
-            const nome = prompt("Digite o novo nome:");
+            const nome = prompt("Digite o novo nome:"); //Declara uma variável que guarda o resultado digitado no prompt
             if (nome) {
-                document.getElementById("profileName").textContent = "Nome: " + nome;
+                document.getElementById("profileName").textContent = "Nome: " + nome; //Exibe o nome digitado
             }
         }
 
+        //Função que adiciona um hobby na lista de hobbies
         function adicionarHobby() {
-            const hobby = prompt("Digite um novo hobby:");
+            const hobby = prompt("Digite um novo hobby:"); //Declara uma variável que guarda o resultado digitado
             if (hobby) {
-                const li = document.createElement("li");
-                li.textContent = hobby;
-                li.className = "list-group-item";
-                li.onclick = function() { removerHobby(li); };
-                document.getElementById("hobbiesList").appendChild(li);
+                const li = document.createElement("li"); //Declara uma variável que cria um elemento li
+                li.textContent = hobby; //Guarda a variável hobby no conteúdo da variável li
+                li.className = "list-group-item"; //Denomina uma classe para o elemento li
+                li.onclick = function() { removerHobby(li); }; //Aciona a função removerHobby ao clicar no elemento li
+                document.getElementById("hobbiesList").appendChild(li); //Transforma o elemento li em filho do elemento hobbiesList
             }
         }
 
+        //Função que remove um hobby
         function removerHobby(element) {
             element.style.display = "none"; // Faz o hobby desaparecer ao clicar
         }
 
+        //Função que muda a cor de fundo do site
         function mudarCorDeFundo() {
-            const cores = ["#8d7da", "#d1ecf2", "#dff0d8", "#fff3cd", "#cce5ff"];
-            const corAleatoria = cores[Math.floor(Math.random() * cores.length)];
-            document.body.style.backgroundColor = corAleatoria;
+            const cores = ["#8d7da", "#d1ecf2", "#dff0d8", "#fff3cd", "#cce5ff"]; //Array que guarda cores 
+            const corAleatoria = cores[Math.floor(Math.random() * cores.length)]; //Variável que sorteia uma cor 
+            document.body.style.backgroundColor = corAleatoria; //Transforma a cor sorteada na cor de fundo do site
         }
 
+        //Função que muda a imagem de perfil ao clicar nela
         function mudarImagem(){
-            const ima = document.getElementById("profileImage")
-            const imaResul = ["https://media.licdn.com/dms/image/C4E12AQGtw3cue9WCiA/article-cover_image-shrink_720_1280/0/1604347346953?e=2147483647&v=beta&t=cZkmKmUTJ4Bvg9OicyynLkNtQiul9b7L3YTJ0bTL3HU", "https://m.media-amazon.com/images/I/71vJPnviraL._AC_UF894,1000_QL80_.jpg", "https://as2.ftcdn.net/v2/jpg/00/35/34/29/1000_F_35342907_flThFxJdbGByyYWRWbXWM7WDHXRgZg84.jpg"]
-            const imaAlea = imaResul[Math.floor(Math.random() * imaResul.length)]
-            ima.src = imaAlea
+            const ima = document.getElementById("profileImage") //Variável que guarda a imagem de perfil
+            const imaResul = ["https://media.licdn.com/dms/image/C4E12AQGtw3cue9WCiA/article-cover_image-shrink_720_1280/0/1604347346953?e=2147483647&v=beta&t=cZkmKmUTJ4Bvg9OicyynLkNtQiul9b7L3YTJ0bTL3HU", "https://m.media-amazon.com/images/I/71vJPnviraL._AC_UF894,1000_QL80_.jpg", "https://as2.ftcdn.net/v2/jpg/00/35/34/29/1000_F_35342907_flThFxJdbGByyYWRWbXWM7WDHXRgZg84.jpg"] //Array que guarda imagens
+            const imaAlea = imaResul[Math.floor(Math.random() * imaResul.length)] //Variável que sorteia uma imagem
+            ima.src = imaAlea //Transforma o src da imagem na imagem sorteada
         }
 
+        //Função que muda a idade 
         function mudarIdade(){
-            const idade = prompt("Digite uma nova idade: ")
+            const idade = prompt("Digite uma nova idade: ") //Declara uma variável que guarda o resultado do prompt
             if (idade){
-                document.getElementById("profileAge").textContent = "Idade: " + idade;
+                document.getElementById("profileAge").textContent = "Idade: " + idade; //Altera o conteúdo do profileAge 
             }
         }
 
+        //Função para ativar e desativar o modo noturno do site
          function ativarModoNoturno() {
-            const body = document.body;
-            const card = document.getElementById("profileCard");
-            const buttons = document.querySelectorAll('button');
+            const body = document.body; //Guarda todo o conteúdo do corpo da página na variável body
+            const card = document.getElementById("profileCard"); //Guarda o conteúdo do profileCard na variável card
+            const buttons = document.querySelectorAll('button'); //Declara uma variável e guarda todos os botões nela
 
-            body.classList.toggle("bg-dark");
-            body.classList.toggle("text-light");
-            card.classList.toggle("bg-secondary");
+            body.classList.toggle("bg-dark"); //Troca a classe responsável cor primária do body
+            body.classList.toggle("text-light"); //Troca a classe do texto do body
+            card.classList.toggle("bg-secondary"); //Troca  a classe responsável pela cor secundária do body
 
             buttons.forEach(button => {
-                button.classList.toggle("btn-light");
-                button.classList.toggle("btn-dark");
+                button.classList.toggle("btn-light"); //Troca a classe que muda a cor dos botões
+                button.classList.toggle("btn-dark"); //Troca a classe  que muda a cor dos botões
             });
         }
 
